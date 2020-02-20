@@ -10,7 +10,8 @@ class App extends React.Component {
       names: [],
       name: "Explore the national parks in Michigan!",
       imgUrl: "",
-      description: ""
+      description: "",
+      menuClicked: false
     };
   }
   fetchParks = () => {
@@ -29,8 +30,7 @@ class App extends React.Component {
         });
       });
   };
-  handleClick = eve => {
-    console.dir(typeof eve.target.tabIndex);
+  handleParkClick = eve => {
     let parkObj = this.state.parksObj[eve.target.tabIndex];
     this.setState({
       name: parkObj.name,
@@ -38,19 +38,27 @@ class App extends React.Component {
       imgURL: parkObj.images[0].url
     });
   };
+  handleMenuClick = () => {
+    console.log("Menu!");
+    this.setState({ menuClicked: !this.state.menuClicked });
+  };
   populateMenu = () => {
-    return this.state.names.map((name, i) => {
-      return (
-        <div
-          className="menu-item"
-          key={name}
-          tabIndex={i}
-          onClick={this.handleClick}
-        >
-          {name}
-        </div>
-      );
-    });
+    if (this.state.menuClicked) {
+      return this.state.names.map((name, i) => {
+        return (
+          <div
+            className="menu-item"
+            key={name}
+            tabIndex={i}
+            onClick={this.handleParkClick}
+          >
+            {name}
+          </div>
+        );
+      });
+    } else {
+      return null;
+    }
   };
   componentDidMount() {
     if (this.state.names.length === 0) {
@@ -63,7 +71,7 @@ class App extends React.Component {
         <header className="App-header">Hamburger menu</header>
         <main>
           <nav>
-            <button>Menu</button>
+            <button onClick={this.handleMenuClick}>Menu</button>
             <ul>{this.populateMenu()}</ul>
           </nav>
           <div className="display">
