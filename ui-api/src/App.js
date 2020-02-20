@@ -35,11 +35,11 @@ class App extends React.Component {
     this.setState({
       name: parkObj.name,
       description: parkObj.description,
-      imgURL: parkObj.images[0].url
+      imgURL: parkObj.images[0].url,
+      menuClicked: !this.state.menuClicked
     });
   };
   handleMenuClick = () => {
-    console.log("Menu!");
     this.setState({ menuClicked: !this.state.menuClicked });
   };
   populateMenu = () => {
