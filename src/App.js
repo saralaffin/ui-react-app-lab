@@ -68,12 +68,16 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
+        <div className="hamburger" onClick={this.handleMenuClick}>
+          <div className="hotdog"></div>
+          <div className="hotdog"></div>
+          <div className="hotdog"></div>
+        </div>
+        <nav>
+          <ul>{this.populateMenu()}</ul>
+        </nav>
         <header className="App-header">Hamburger menu</header>
         <main>
-          <nav>
-            <button onClick={this.handleMenuClick}>Menu</button>
-            <ul>{this.populateMenu()}</ul>
-          </nav>
           <div className="display">
             <Park
               name={this.state.name}

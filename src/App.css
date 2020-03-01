@@ -1,36 +1,50 @@
+* {
+  box-sizing: border-box;
+}
 .App-header {
   background-color: #282c34;
-  height: 10vh;
+  height: 60px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+  padding-left: 60px;
 }
 main {
   width: 100vw;
-  display: grid;
   background-color: blanchedalmond;
 }
 nav {
   width: 20vw;
-  grid-row: 1 / span 1;
-  grid-column: 1 / span 1;
   position: absolute;
-  left: 0px;
-  top: 10vh;
   z-index: 1;
+  top: 60px;
 }
 .display {
   grid-row: 1 / span 1;
   grid-column: 1 / span 1;
 }
-button {
-  height: 25px;
+.hamburger {
+  background-color: #282c34;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding: 10px;
+  position: absolute;
+  z-index: 2;
+  top: 5px;
+}
+.hotdog {
+  height: 5px;
+  background-color: white;
+  border-radius: 10px;
 }
 ul {
-  margin-top: -25px;
+  margin: 0;
   padding: 0;
   width: 25vw;
   list-style: none;
