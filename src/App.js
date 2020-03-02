@@ -60,6 +60,24 @@ class App extends React.Component {
       return null;
     }
   };
+  populateHotdogs = () => {
+    if (this.state.menuClicked) {
+      return (
+        <>
+          <div className="hotdog rotated-left"></div>
+          <div className="hotdog rotated-right"></div>
+        </>
+      );
+    } else {
+      return (
+        <>
+          <div className="hotdog"></div>
+          <div className="hotdog"></div>
+          <div className="hotdog"></div>
+        </>
+      );
+    }
+  };
   componentDidMount() {
     if (this.state.names.length === 0) {
       this.fetchParks();
@@ -69,9 +87,7 @@ class App extends React.Component {
     return (
       <div className="App">
         <div className="hamburger" onClick={this.handleMenuClick}>
-          <div className="hotdog"></div>
-          <div className="hotdog"></div>
-          <div className="hotdog"></div>
+          {this.populateHotdogs()}
         </div>
         <nav>
           <ul>{this.populateMenu()}</ul>

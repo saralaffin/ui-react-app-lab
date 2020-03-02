@@ -43,6 +43,12 @@ nav {
   background-color: white;
   border-radius: 10px;
 }
+.rotated-left {
+  transform: rotate(0.125turn) translateX(5px) translateY(5px);
+}
+.rotated-right {
+  transform: rotate(-0.125turn) translateX(5px) translateY(-5px);
+}
 ul {
   margin: 0;
   padding: 0;
